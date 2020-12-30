@@ -1,3 +1,8 @@
+import environ
+env = environ.Env(
+    DEBUG=(bool, True)
+)
+environ.Env.read_env()
 """
 Django settings for mysite project.
 
@@ -23,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '9=c-hqvaz(glf_+n9_-zmdnjuxouw*31uif@c0&#_ov&ag@b2_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -37,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'category',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +60,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+         'DIRS': [BASE_DIR/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,8 +81,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('dbname'),
+        'USER': env('dbuser'),
+        'PASSWORD': env('dbpassword'),
+        'HOST': env('dbhost'),
+        'PORT': env('dbport'),
     }
 }
 
@@ -118,3 +128,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = BASE_DIR / "media"
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static"
+]
