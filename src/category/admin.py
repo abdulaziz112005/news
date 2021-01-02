@@ -10,6 +10,7 @@ class NewsAdmin(admin.ModelAdmin):
 class ContactAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'email']
 
-admin.site.register(Contact, ContactAdmin)
-admin.site.register(News, NewsAdmin)
 admin.site.register(Catalog, CatalogAdmin)
+admin.site.register(News, NewsAdmin)
+admin.site.register(Contact, ContactAdmin)
+
