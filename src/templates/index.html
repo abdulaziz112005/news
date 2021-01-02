@@ -64,14 +64,14 @@
 				<ul>
 					<li>
 						{% for new in news %}
-							{% if new.name_id == 1 %}
+							{% if new.category_id == 1 %}
 								<a href="">
 								<div class="list_fimg">
 								<img src="{{ new.photo.url }}" alt="">
 								</div>
 								<span class="list_type">ОБЩЕСТВО</span>
 								<span class="list_title">{{ new.info }}</span>
-								<span class="date">{{ new.created_date }}</span>
+								<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 								</a>
 						{% endif %}
 						{% endfor %}
@@ -86,11 +86,11 @@
 		<div class="popular">
 			<div class="row">
 				{% for new in news %}
-				{% if new.name_id == 5 %}
+				{% if new.category_id == 5 %}
 				<div class="col-md-3 col-xs-12">
 					<div class="p_img"><img src="{{ new.photo.url }}" alt=""></div>
 					<a href="#">{{ new.info }}</a>
-					<span class="date">{{ new.created_date }}</span>
+					<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 					<span class="p_type"><i class="fa fa-pencil"></i> Общество</span>
 				</div>
 				{% endif %}
@@ -106,41 +106,31 @@
 				<div class="head_title">ПРОИСШЕСТВИЯ</div>
 				<div class="news_box">
 					<div class="row">
+						{% for new in news %}
+						{% if new.category_id == 6 and new.id == 18%}
 						<div class="col-md-6 col-xs-12">
 							<div class="big_news">
-								<div class="big_n_img"><img src="img/news3.jpg" alt=""></div>
-								<a href="#">В Узбекистане переработают оборонную доктрину в Узбекистане</a>
-								<span class="date">12.01.2017</span>
+								<div class="big_n_img"><img src="{{ new.photo.url }}" alt=""></div>
+								<a href="#">{{ new.name }}</a>
+								<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 								<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								<div class="desc">С учетом динамики развития ситуации в мире и регионе, необходимости адекватного реагирования на возникающие угрозы и вызовы, а также наших приоритетов и возможностей требует переработки Оборонная доктрина Республики Узбекистан.</div>
+								<div class="desc">{{ new.info }}</div>
 							</div>
+							{% endif %}
+							{% endfor %}
 						</div>
 						<div class="col-md-6 col-xs-12">
 							<ul class="list_news">
+								{% for new in news %}
+										{% if new.category_id == 6 %}
 								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
+									<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
+									<a href="#">{{ new.info }}</a>
+									<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
 								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
+									{% endif %}
+						{% endfor %}
 							</ul>
 						</div>
 					</div>
@@ -149,95 +139,50 @@
 				<div class="head_title">ПОЛИТИКА</div>
 				<div class="news_box">
 					<div class="row">
+						{% for new in news %}
+						{% if new.category_id == 8 and new.id == 21%}
 						<div class="col-md-6 col-xs-12">
 							<div class="big_news">
-								<div class="big_n_img"><img src="img/news3.jpg" alt=""></div>
-								<a href="#">В Узбекистане переработают оборонную доктрину в Узбекистане</a>
-								<span class="date">12.01.2017</span>
-								<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								<div class="desc">С учетом динамики развития ситуации в мире и регионе, необходимости адекватного реагирования на возникающие угрозы и вызовы, а также наших приоритетов и возможностей требует переработки Оборонная доктрина Республики Узбекистан.</div>
+								<div class="big_n_img"><img src="{{ new.photo.url }}" alt=""></div>
+								<a href="#">{{ new.name }}</a>
+								<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
+								<span class="news_type"><i class="fa fa-pencil"></i>Общество</span>
+								<div class="desc">{{ new.info }}</div>
 							</div>
 						</div>
-						<div class="col-md-6 col-xs-12">
-							<div class="big_news">
-								<div class="big_n_img"><img src="img/news3.jpg" alt=""></div>
-								<a href="#">В Узбекистане переработают оборонную доктрину в Узбекистане</a>
-								<span class="date">12.01.2017</span>
-								<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								<div class="desc">С учетом динамики развития ситуации в мире и регионе, необходимости адекватного реагирования на возникающие угрозы и вызовы, а также наших приоритетов и возможностей требует переработки Оборонная доктрина Республики Узбекистан.</div>
-							</div>
-						</div>
-
+							{% endif %}
+							{% endfor %}
 					</div>
+
 				</div>
 				<div class="news_box">
 					<div class="row">
 						<div class="col-md-6 col-xs-12">
 							<ul class="list_news">
+								{% for new in news %}
+									{% if new.category_id == 8 %}
 								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
+									<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
+									<a href="#">{{ new.info }}</a>
+									<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
 								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
+								{% endif %}
+								{% endfor %}
 							</ul>
 						</div>
 						<div class="col-md-6 col-xs-12">
 							<ul class="list_news">
+								{% for new in news %}
+									{% if new.category_id == 8 %}
 								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
+									<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
+									<a href="#">{{ new.info }}</a>
+									<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
 								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
+								{% endif %}
+								{% endfor %}
 							</ul>
 						</div>
 					</div>
@@ -251,58 +196,16 @@
 						<div class="carousel-inner" role="listbox">
 							<div class="item active">
 								<ul class="list_news">
+									{% for new in news %}
+									{% if new.category_id == 7 %}
 									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
+										<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
+										<a href="#">{{ new.info }}</a>
+										<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
 									</li>
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-								</ul>
-							</div>
-							<div class="item">
-								<ul class="list_news">
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
+										{% endif %}
+								{% endfor %}
 								</ul>
 							</div>
 						</div>
@@ -316,37 +219,18 @@
 				</div>
 
 				<div class="head_title colum">Колумнисты</div>
-
 					<div class="news_box colums">
-
 								<ul class="list_news">
+									{% for new in news %}
+									{% if new.category_id == 9 %}
 									<li>
-										<div class="list_img"><img src="img/ava.jpg" alt=""></div>
-										<a href="#">АЛО ХОДЖАЕВ.</a>
-										<div class="col_type">Журналист, кандидат философских наук</div>
+										<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
+										<a href="#">{{ new.name }}</a>
+										<div class="col_type">{{ new.info }}</div>
 									</li>
-									<li>
-										<div class="list_img"><img src="img/ava.jpg" alt=""></div>
-										<a href="#">АЛО ХОДЖАЕВ.</a>
-										<div class="col_type">Журналист, кандидат философских наук</div>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/ava.jpg" alt=""></div>
-										<a href="#">АЛО ХОДЖАЕВ.</a>
-										<div class="col_type">Журналист, кандидат философских наук</div>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/ava.jpg" alt=""></div>
-										<a href="#">АЛО ХОДЖАЕВ.</a>
-										<div class="col_type">Журналист, кандидат философских наук</div>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/ava.jpg" alt=""></div>
-										<a href="#">АЛО ХОДЖАЕВ.</a>
-										<div class="col_type">Журналист, кандидат философских наук</div>
-									</li>
+									{% endif %}
+								{% endfor %}
 								</ul>
-
 					</div>
 
 
@@ -379,34 +263,24 @@
 				<div class="carousel-inner" role="listbox">
 					<div class="item active">
 						<div class="big_cult">
-							<img src="img/cult1.jpg" alt="">
+							{% for new in news %}
+							{% if new.category_id == 10 %}
+							<img src="{{ new.photo.url }}" alt="">
 							<a href="#">
-								<div class="caption">«Ожидание» — весенняя коллекция для девушек в «особом» положении</div>
+								<div class="caption">{{ new.info }}</div>
 							</a>
+							{% endif %}
+							{% endfor %}
 						</div>
 						<div class="little_cult">
-							<img src="img/cult1.jpg" alt="">
+							{% for new in news %}
+							{% if new.category_id == 10 %}
+								<img src="{{ new.photo.url }}" alt="">
 							<a href="#">
-								<div class="caption">«Ожидание» — весенняя коллекция для девушек в «особом» положении</div>
+									<div class="caption">{{ new.info }}</div>
 							</a>
-						</div>
-						<div class="little_cult">
-							<img src="img/cult1.jpg" alt="">
-							<a href="#">
-								<div class="caption">«Ожидание» — весенняя коллекция для девушек в «особом» положении</div>
-							</a>
-						</div>
-						<div class="little_cult">
-							<img src="img/cult1.jpg" alt="">
-							<a href="#">
-								<div class="caption">«Ожидание» — весенняя коллекция для девушек в «особом» положении</div>
-							</a>
-						</div>
-						<div class="little_cult">
-							<img src="img/cult1.jpg" alt="">
-							<a href="#">
-								<div class="caption">«Ожидание» — весенняя коллекция для девушек в «особом» положении</div>
-							</a>
+   							{% endif %}
+							{% endfor %}
 						</div>
 					</div>
 				</div>
@@ -414,90 +288,55 @@
 			<a href="#" class="more">больше новости</a>
 		</div>
 	</div>
-
-	<div class="container">
+<div class="container">
 		<div class="row">
 			<div class="col-md-8 col-xs-12">
 				<div class="head_title">ОБЩЕСТВО</div>
 				<div class="news_box">
 					<div class="row">
 						<div class="col-md-6 col-xs-12">
+							{% for new in news %}
+							{% if new.category_id == 11 and new.id == 36 %}
 							<div class="big_news">
-								<div class="big_n_img"><img src="img/news3.jpg" alt=""></div>
-								<a href="#">В Узбекистане переработают оборонную доктрину в Узбекистане</a>
-								<span class="date">12.01.2017</span>
-								<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								<div class="desc">С учетом динамики развития ситуации в мире и регионе, необходимости адекватного реагирования на возникающие угрозы и вызовы, а также наших приоритетов и возможностей требует переработки Оборонная доктрина Республики Узбекистан.</div>
+								<div class="big_n_img"><img src="{{ new.photo.url }}" alt=""></div>
+								<a href="#">{{ new.name }}</a>
+								<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
+								<span class="news_type"><i class="fa fa-pencil"></i>Общество</span>
+								<div class="desc">{{ new.info }}</div>
 							</div>
+							{% endif %}
+							{% endfor %}
 						</div>
-						<div class="col-md-6 col-xs-12">
-							<div class="big_news">
-								<div class="big_n_img"><img src="img/news3.jpg" alt=""></div>
-								<a href="#">В Узбекистане переработают оборонную доктрину в Узбекистане</a>
-								<span class="date">12.01.2017</span>
-								<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								<div class="desc">С учетом динамики развития ситуации в мире и регионе, необходимости адекватного реагирования на возникающие угрозы и вызовы, а также наших приоритетов и возможностей требует переработки Оборонная доктрина Республики Узбекистан.</div>
-							</div>
-						</div>
-
 					</div>
 				</div>
 				<div class="news_box">
 					<div class="row">
 						<div class="col-md-6 col-xs-12">
-							<ul class="list_news">
+						<ul class="list_news">
+								{% for new in news %}
+									{% if new.category_id == 11 %}
 								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
+									<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
+									<a href="#">{{ new.info }}</a>
+									<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
 								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
+								{% endif %}
+								{% endfor %}
 							</ul>
 						</div>
 						<div class="col-md-6 col-xs-12">
 							<ul class="list_news">
+								{% for new in news %}
+									{% if new.category_id == 11 %}
 								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
+									<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
+									<a href="#">{{ new.info }}</a>
+									<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
 								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
+								{% endif %}
+								{% endfor %}
 							</ul>
 						</div>
 					</div>
@@ -507,22 +346,30 @@
 				<div class="news_box">
 					<div class="row">
 						<div class="col-md-6 col-xs-12">
+							{% for new in news %}
+							{% if new.category_id == 14 and new.id == 40 %}
 							<div class="big_news">
-								<div class="big_n_img"><img src="img/news3.jpg" alt=""></div>
-								<a href="#">В Узбекистане переработают оборонную доктрину в Узбекистане</a>
-								<span class="date">12.01.2017</span>
-								<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								<div class="desc">С учетом динамики развития ситуации в мире и регионе, необходимости адекватного реагирования на возникающие угрозы и вызовы, а также наших приоритетов и возможностей требует переработки Оборонная доктрина Республики Узбекистан.</div>
+								<div class="big_n_img"><img src="{{ new.photo.url }}" alt=""></div>
+								<a href="#">{{ new.name }}</a>
+								<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
+								<span class="news_type"><i class="fa fa-pencil"></i>Общество</span>
+								<div class="desc">{{ new.info }}</div>
 							</div>
+							{% endif %}
+							{% endfor %}
 						</div>
-						<div class="col-md-6 col-xs-12">
+					<div class="col-md-6 col-xs-12">
+							{% for new in news %}
+							{% if new.category_id == 14 and new.id == 41 %}
 							<div class="big_news">
-								<div class="big_n_img"><img src="img/news3.jpg" alt=""></div>
-								<a href="#">В Узбекистане переработают оборонную доктрину в Узбекистане</a>
-								<span class="date">12.01.2017</span>
-								<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								<div class="desc">С учетом динамики развития ситуации в мире и регионе, необходимости адекватного реагирования на возникающие угрозы и вызовы, а также наших приоритетов и возможностей требует переработки Оборонная доктрина Республики Узбекистан.</div>
+								<div class="big_n_img"><img src="{{ new.photo.url }}" alt=""></div>
+								<a href="#">{{ new.name }}</a>
+								<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
+								<span class="news_type"><i class="fa fa-pencil"></i>Общество</span>
+								<div class="desc">{{ new.info }}</div>
 							</div>
+							{% endif %}
+							{% endfor %}
 						</div>
 
 					</div>
@@ -531,58 +378,30 @@
 					<div class="row">
 						<div class="col-md-6 col-xs-12">
 							<ul class="list_news">
+								{% for new in news %}
+									{% if new.category_id == 14 %}
 								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
+									<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
+									<a href="#">{{ new.info }}</a>
+									<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
 								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
+								{% endif %}
+								{% endfor %}
 							</ul>
 						</div>
 						<div class="col-md-6 col-xs-12">
 							<ul class="list_news">
+								{% for new in news %}
+									{% if new.category_id == 14 %}
 								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
+									<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
+									<a href="#">{{ new.info }}</a>
+									<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
 								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
-								<li>
-									<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-									<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-									<span class="date">12.01.2017</span>
-									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-								</li>
+								{% endif %}
+								{% endfor %}
 							</ul>
 						</div>
 					</div>
@@ -594,22 +413,17 @@
 				<div class="carousel slide listnews technonews" data-ride="carousel">
 						<div class="carousel-inner" role="listbox">
 							<div class="item active">
+									{% for new in news %}
+									{% if new.category_id == 12 %}
 								<div class="full_img">
-									<img src="img/news3.jpg" alt="">
+									<img src="{{ new.photo.url }}" alt="">
 								</div>
 								<div class="news_box">
-										<a href="#">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</a>
-										<p>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut.</p>
+										<a href="#">{{ new.name }}</a>
+										<p>{{ new.info }}</p>
 								</div>
-						</div>
-						<div class="item">
-							<div class="full_img">
-								<img src="img/news3.jpg" alt="">
-							</div>
-							<div class="news_box">
-									<a href="#">D2onec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</a>
-									<p>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut.</p>
-							</div>
+								{% endif %}
+								{% endfor %}
 						</div>
 					</div>
 					<div class="indi_box">
@@ -624,50 +438,18 @@
 					<div class="news_box">
 						<div class="carousel-inner" role="listbox">
 							<div class="item active">
-								<ul class="list_news">
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-
-								</ul>
-							</div>
-							<div class="item">
-								<ul class="list_news">
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-
-								</ul>
+										<ul class="list_news">
+								{% for new in news %}
+									{% if new.category_id == 13 %}
+								<li>
+									<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
+									<a href="#">{{ new.info }}</a>
+									<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
+									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
+								</li>
+								{% endif %}
+								{% endfor %}
+							</ul>
 							</div>
 						</div>
 					</div>
@@ -682,20 +464,17 @@
 				<div id="technews" class="carousel slide listnews" data-ride="carousel">
 						<div class="carousel-inner" role="listbox">
 							<div class="item active">
+									{% for new in news %}
+									{% if new.category_id == 15 %}
 								<div class="full_img">
-									<img src="img/news3.jpg" alt="">
+									<img src="{{ new.photo.url }}" alt="">
 								</div>
 								<div class="news_box">
-										<a href="#">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</a>
+										<a href="#">{{ new.name }}</a>
+										<p>{{ new.info }}</p>
 								</div>
-						</div>
-						<div class="item">
-							<div class="full_img">
-								<img src="img/news3.jpg" alt="">
-							</div>
-							<div class="news_box">
-									<a href="#">D2onec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</a>
-							</div>
+								{% endif %}
+								{% endfor %}
 						</div>
 					</div>
 					<div class="indi_box">
@@ -709,73 +488,19 @@
 				<div id="econews" class="carousel slide listnews" data-ride="carousel">
 					<div class="news_box">
 						<div class="carousel-inner" role="listbox">
-							<div class="item active">
-								<ul class="list_news">
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-								</ul>
-							</div>
-							<div class="item">
-								<ul class="list_news">
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-									<li>
-										<div class="list_img"><img src="img/news1.jpg" alt=""></div>
-										<a href="#">Dolor sit amet, consectetuer adipiscing elit.</a>
-										<span class="date">12.01.2017</span>
-										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
-									</li>
-								</ul>
+								<div class="item active">
+										<ul class="list_news">
+								{% for new in news %}
+									{% if new.category_id == 16 %}
+								<li>
+									<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
+									<a href="#">{{ new.info }}</a>
+									<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
+									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
+								</li>
+								{% endif %}
+								{% endfor %}
+							</ul>
 							</div>
 						</div>
 					</div>

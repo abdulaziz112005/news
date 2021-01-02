@@ -9,4 +9,6 @@ def index(request):
     return render(request, 'index.html', context)
 
 def contact(request):
-    return render(request, 'contact.html')
+    contacts = Contact.objects.get(pk=1)
+    context = {'contacts': contacts}
+    return render(request, 'contact.html', context)
