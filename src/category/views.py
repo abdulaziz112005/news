@@ -22,5 +22,10 @@ def view(request, id):
     context= {'view': view,
               'news': news}
     return render(request, 'view.html', context)
+def category(request):
+    catalogs = Catalog.objects.all()
+    news = News.objects.all()
+    context = {'catalogs': catalogs, 'news': news}
+    return render(request, 'category.html', context)
 
 

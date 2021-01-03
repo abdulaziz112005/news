@@ -1,0 +1,130 @@
+{% extends "main.html" %}
+{% block title %} Home {% endblock %}
+{% block content %}
+{% load static %}
+	<a href="#" class="bigrek"></a>
+	<div class="container wrapper">
+		<div class="longrek"></div>
+		<div class="clearfix"></div>
+		
+		<ol class="breadcrumb">
+			<li><a href="#">Главная</a></li>
+			<li class="active">Политика</li>
+		</ol>
+		<div class="row">
+			<div class="col-md-8 col-xs-12">
+				<div class="cat_title">Политика</div>
+				<div class="big_fav pop_cat">
+				<div id="bigfav" class="carousel slide" data-ride="carousel">
+					<div class="carousel-inner" role="listbox">
+						<div class="item active">
+								{% for new in news %}
+							<img src="{{ new.photo.url }}" alt="...">
+								{% endfor %}
+								<a href="#">
+									<div class="carousel-caption">
+										<div class="caption_pos">
+											{% for new in news %}
+											{% if new.category_id == 8 and new.id == 21%}
+											<div class="type_news">ПОЛИТИКА</div>
+											<div class="title">{{ new.info }}</div>
+											<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
+											{% endif %}
+											{% endfor %}
+										</div>
+									</div>
+								</a>
+						</div>
+					</div>
+					<div class="control">
+					<a class="left carousel-control" href="#bigfav" role="button" data-slide="prev">
+						<i class="fa fa-angle-left"></i>
+					</a>
+					<a class="right carousel-control" href="#bigfav" role="button" data-slide="next">
+						<i class="fa fa-angle-right"></i>
+					</a>
+					</div>
+				</div>
+			</div>
+				<div class="news_box">
+					{% for new in news %}
+					{% if new.category_id == 8%}
+					<div class="cat_news">
+						<div class="cat_img"><img src="{{ new.photo.url }}" alt=""></div>
+						<a href="{% url 'new:info' new.id %}">{{ new.name }}</a>
+						<p>{{ new.info }}</p>
+						<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
+						<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
+
+					</div>
+							{% endif %}
+							{% endfor %}
+					<nav aria-label="Page navigation">
+						<ul class="pagination">
+							<li>
+								<a href="#" aria-label="Previous">
+									<span aria-hidden="true">&laquo;</span>
+								</a>
+							</li>
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li>
+								<a href="#" aria-label="Next">
+									<span aria-hidden="true">&raquo;</span>
+								</a>
+							</li>
+						</ul>
+					</nav>											
+				</div>
+			</div>
+			<div class="col-md-4 col-xs-12">
+				<div class="head_title">Свежие новости</div>
+				<div id="listnews" class="carousel slide listnews" data-ride="carousel">
+					<div class="news_box">
+						<div class="carousel-inner" role="listbox">
+							<div class="item active">
+								<ul class="list_news">
+									{% for new in news %}
+									{% if new.category_id == 7 %}
+									<li>
+										<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
+										<a href="{% url 'new:info' new.id %}">{{ new.info }}</a>
+										<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
+										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
+									</li>
+										{% endif %}
+								{% endfor %}
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="indi_box">
+						<ol class="carousel-indicators">
+							<li data-target="#listnews" data-slide-to="0" class="active"></li>
+							<li data-target="#listnews" data-slide-to="1"></li>
+						</ol>
+					</div>				
+				</div>
+				
+				<div class="news_box rek">
+					<div class="rek_right">
+						
+					</div>
+				</div>
+				<div class="subscribe">
+					<div class="title">Подписывайся на <b>1news.uz</b></div>
+					<form action="">
+						<div class="input-group">
+							<input type="text" name="email" placeholder="Email">
+							<button class="submit">Подписываться</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
