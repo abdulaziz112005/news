@@ -12,3 +12,15 @@ def contact(request):
     contacts = Contact.objects.get(pk=1)
     context = {'contacts': contacts}
     return render(request, 'contact.html', context)
+
+def view(request, id):
+    news = News.objects.all()
+    try:
+        view = News.objects.get(pk=id)
+    except News.DoesNotExist:
+        view = None
+    context= {'view': view,
+              'news': news}
+    return render(request, 'view.html', context)
+
+

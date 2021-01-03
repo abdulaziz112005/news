@@ -65,7 +65,7 @@
 					<li>
 						{% for new in news %}
 							{% if new.category_id == 1 %}
-								<a href="">
+								<a href="{% url 'new:info' new.id %}">
 								<div class="list_fimg">
 								<img src="{{ new.photo.url }}" alt="">
 								</div>
@@ -76,7 +76,6 @@
 						{% endif %}
 						{% endfor %}
 					</li>
-					<li>
 				</ul>
 				<a href="#" class="more">больше актуальные новости</a>
 			</div>
@@ -89,9 +88,10 @@
 				{% if new.category_id == 5 %}
 				<div class="col-md-3 col-xs-12">
 					<div class="p_img"><img src="{{ new.photo.url }}" alt=""></div>
-					<a href="#">{{ new.info }}</a>
+					<a href="{% url 'new:info' new.id %}">{{ new.info }}</a>
 					<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 					<span class="p_type"><i class="fa fa-pencil"></i> Общество</span>
+
 				</div>
 				{% endif %}
 				{% endfor %}
@@ -111,7 +111,7 @@
 						<div class="col-md-6 col-xs-12">
 							<div class="big_news">
 								<div class="big_n_img"><img src="{{ new.photo.url }}" alt=""></div>
-								<a href="#">{{ new.name }}</a>
+								<a href="{% url 'new:info' new.id %}">{{ new.name }}</a>
 								<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 								<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
 								<div class="desc">{{ new.info }}</div>
@@ -125,7 +125,7 @@
 										{% if new.category_id == 6 %}
 								<li>
 									<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
-									<a href="#">{{ new.info }}</a>
+									<a href="{% url 'new:info' new.id %}">{{ new.info }}</a>
 									<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
 								</li>
@@ -144,7 +144,7 @@
 						<div class="col-md-6 col-xs-12">
 							<div class="big_news">
 								<div class="big_n_img"><img src="{{ new.photo.url }}" alt=""></div>
-								<a href="#">{{ new.name }}</a>
+								<a href="{% url 'new:info' new.id %}">{{ new.name }}</a>
 								<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 								<span class="news_type"><i class="fa fa-pencil"></i>Общество</span>
 								<div class="desc">{{ new.info }}</div>
@@ -163,7 +163,7 @@
 									{% if new.category_id == 8 %}
 								<li>
 									<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
-									<a href="#">{{ new.info }}</a>
+									<a href="{% url 'new:info' new.id %}">{{ new.info }}</a>
 									<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
 								</li>
@@ -177,7 +177,7 @@
 									{% if new.category_id == 8 %}
 								<li>
 									<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
-									<a href="#">{{ new.info }}</a>
+									<a href="{% url 'new:info' new.id %}">{{ new.info }}</a>
 									<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
 								</li>
@@ -200,7 +200,7 @@
 									{% if new.category_id == 7 %}
 									<li>
 										<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
-										<a href="#">{{ new.info }}</a>
+										<a href="{% url 'new:info' new.id %}">{{ new.info }}</a>
 										<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 										<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
 									</li>
@@ -225,7 +225,7 @@
 									{% if new.category_id == 9 %}
 									<li>
 										<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
-										<a href="#">{{ new.name }}</a>
+										<a href="{% url 'new:info' new.id %}">{{ new.name }}</a>
 										<div class="col_type">{{ new.info }}</div>
 									</li>
 									{% endif %}
@@ -266,7 +266,7 @@
 							{% for new in news %}
 							{% if new.category_id == 10 %}
 							<img src="{{ new.photo.url }}" alt="">
-							<a href="#">
+							<a href="{% url 'new:info' new.id %}">
 								<div class="caption">{{ new.info }}</div>
 							</a>
 							{% endif %}
@@ -276,7 +276,7 @@
 							{% for new in news %}
 							{% if new.category_id == 10 %}
 								<img src="{{ new.photo.url }}" alt="">
-							<a href="#">
+							<a href="{% url 'new:info' new.id %}">
 									<div class="caption">{{ new.info }}</div>
 							</a>
    							{% endif %}
@@ -299,7 +299,7 @@
 							{% if new.category_id == 11 and new.id == 36 %}
 							<div class="big_news">
 								<div class="big_n_img"><img src="{{ new.photo.url }}" alt=""></div>
-								<a href="#">{{ new.name }}</a>
+								<a href="{% url 'new:info' new.id %}">{{ new.name }}</a>
 								<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 								<span class="news_type"><i class="fa fa-pencil"></i>Общество</span>
 								<div class="desc">{{ new.info }}</div>
@@ -317,7 +317,7 @@
 									{% if new.category_id == 11 %}
 								<li>
 									<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
-									<a href="#">{{ new.info }}</a>
+									<a href="{% url 'new:info' new.id %}">{{ new.info }}</a>
 									<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
 								</li>
@@ -331,7 +331,7 @@
 									{% if new.category_id == 11 %}
 								<li>
 									<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
-									<a href="#">{{ new.info }}</a>
+									<a href="{% url 'new:info' new.id %}">{{ new.info }}</a>
 									<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
 								</li>
@@ -350,7 +350,7 @@
 							{% if new.category_id == 14 and new.id == 40 %}
 							<div class="big_news">
 								<div class="big_n_img"><img src="{{ new.photo.url }}" alt=""></div>
-								<a href="#">{{ new.name }}</a>
+								<a href="{% url 'new:info' new.id %}">{{ new.name }}</a>
 								<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 								<span class="news_type"><i class="fa fa-pencil"></i>Общество</span>
 								<div class="desc">{{ new.info }}</div>
@@ -363,7 +363,7 @@
 							{% if new.category_id == 14 and new.id == 41 %}
 							<div class="big_news">
 								<div class="big_n_img"><img src="{{ new.photo.url }}" alt=""></div>
-								<a href="#">{{ new.name }}</a>
+								<a href="{% url 'new:info' new.id %}">{{ new.name }}</a>
 								<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 								<span class="news_type"><i class="fa fa-pencil"></i>Общество</span>
 								<div class="desc">{{ new.info }}</div>
@@ -382,7 +382,7 @@
 									{% if new.category_id == 14 %}
 								<li>
 									<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
-									<a href="#">{{ new.info }}</a>
+									<a href="{% url 'new:info' new.id %}">{{ new.info }}</a>
 									<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
 								</li>
@@ -396,7 +396,7 @@
 									{% if new.category_id == 14 %}
 								<li>
 									<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
-									<a href="#">{{ new.info }}</a>
+									<a href="{% url 'new:info' new.id %}">{{ new.info }}</a>
 									<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
 								</li>
@@ -419,7 +419,7 @@
 									<img src="{{ new.photo.url }}" alt="">
 								</div>
 								<div class="news_box">
-										<a href="#">{{ new.name }}</a>
+										<a href="{% url 'new:info' new.id %}">{{ new.name }}</a>
 										<p>{{ new.info }}</p>
 								</div>
 								{% endif %}
@@ -443,7 +443,7 @@
 									{% if new.category_id == 13 %}
 								<li>
 									<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
-									<a href="#">{{ new.info }}</a>
+									<a href="{% url 'new:info' new.id %}">{{ new.info }}</a>
 									<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
 								</li>
@@ -470,7 +470,7 @@
 									<img src="{{ new.photo.url }}" alt="">
 								</div>
 								<div class="news_box">
-										<a href="#">{{ new.name }}</a>
+										<a href="{% url 'new:info' new.id %}">{{ new.name }}</a>
 										<p>{{ new.info }}</p>
 								</div>
 								{% endif %}
@@ -494,7 +494,7 @@
 									{% if new.category_id == 16 %}
 								<li>
 									<div class="list_img"><img src="{{ new.photo.url }}" alt=""></div>
-									<a href="#">{{ new.info }}</a>
+									<a href="{% url 'new:info' new.id %}">{{ new.info }}</a>
 									<span class="date">{{ new.created_date|date:'d.m.Y' }}</span>
 									<span class="news_type"><i class="fa fa-pencil"></i> Общество</span>
 								</li>

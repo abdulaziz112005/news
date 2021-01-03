@@ -13,7 +13,6 @@ class Catalog(models.Model):
 
 class News(models.Model):
     name = models.CharField(max_length=200)
-
     info = models.TextField()
     category = models.ForeignKey(Catalog, on_delete=models.CASCADE, null=True)
     photo = models.ImageField(max_length=200, blank=True, upload_to='news')
